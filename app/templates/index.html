@@ -27,8 +27,33 @@
                 </form>
             </div>
             <div id="output">
-                {% for line in data %}
-                <p>{{line}}</p>
+                <p>Created tables: </p>
+                {% for table in createdTables %}
+                <table>
+                    <caption>{{table[0]}}</caption>
+                    {% for row in table[1] %}
+                    <tr>
+                        {% for item in row %}
+                        <td>{{item}}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </table>
+                <br>
+                {% endfor %}
+                <hr><br>
+                <p>Output: </p>
+                {% for table in data %}
+                <table>
+                    {% for row in table %}
+                    <tr>
+                        {% for item in row %}
+                        <td>{{item}}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </table>
+                <br>
                 {% endfor %}
             </div>
         </div>

@@ -8,3 +8,4 @@ with open('example.sql', 'r') as file:
 class CodeForm(FlaskForm):
     code = TextAreaField('Enter code here:', validators=[DataRequired()], default=data)
     run = SubmitField('Run')
+    save = SubmitField('Save')

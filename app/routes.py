@@ -36,6 +36,10 @@ def displayTable(query, conn):
         pass # Are there any other ways to create tables
     return title, tablelst
 
+def save(path,queries):
+    f = open(path, "w")
+    f.write(queries)
+    f.close()
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
@@ -44,16 +48,18 @@ def index():
     data = []
     createdTables = []
     if form.validate_on_submit():
-        open('database.db', 'w').close()
-        with sql.connect('database.db') as conn:
-            queries = form.code.data
-            for query in queries.split(";"):
-                if "create table" in query.lower():
-                    title, table = displayTable(query, conn)
-                    createdTables.append([title,table])
-                results = conn.cursor().execute(query)
-                data.append([row for row in results])
-        f = open("example.sql", "w")
-        f.write(queries)
-        f.close()
+        if form.run.data:
+            open('database.db', 'w').close()
+            with sql.connect('database.db') as conn:
+                queries = form.code.data
+                for query in queries.split(";"):
+                    if "create table" in query.lower():
+                        title, table = displayTable(query, conn)
+                        createdTables.append([title,table])
+                    results = conn.cursor().execute(query)
+                    data.append([row for row in results])
+            save("example.sql",queries)
+        if form.save.data:
+            save("example.sql",queries)
+
     return render_template('index.html', title='Home', createdTables = createdTables, data=data, form=form)

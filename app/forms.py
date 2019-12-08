@@ -6,6 +6,6 @@ with open('example.sql', 'r') as file:
     data = file.read()
 
 class CodeForm(FlaskForm):
-    code = TextAreaField('Enter code here:', validators=[DataRequired()], default=data)
+    code = TextAreaField('Enter code here:', validators=[DataRequired()], default=data, id='codeTextField')
     run = SubmitField('Run')
     save = SubmitField('Save')

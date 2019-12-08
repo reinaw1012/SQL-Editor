@@ -1,61 +1,88 @@
 <html>
     <head>
-        {% if title %}
-        <title>{{ title }} - Interpreter</title>
-        {% else %}
-        <title>Interpreter</title>
-        {% endif %}
-        <link rel="stylesheet" type="text/css" href="/static/style.css"/>
+        <meta charset="utf-8"/>
+        <title> SQL Interpreter</title>
+        <script src="/static/codemirror.js"></script>
+        <script src="/static/sql.js"></script>
+        <link rel="stylesheet" href="/static/codemirror.css"/>
+        <link rel="stylesheet" href="/static/addon/show-hint.css" />
+        <link rel=stylesheet href="/static/docs.css">
+        <link rel="stylesheet" href="/static/style.css"/>
+        <script src="/static/sql.js"></script>
+        <script src="/static/addon/matchbrackets.js"></script>
+        <script src="/static/addon/show-hint.js"></script>
+        <script src="/static/addon/sql-hint.js"></script>
     </head>
     <body>
-        <div>
-            SQL Interpreter!
+        <div id='heading'>
+            <h1>SQL Interpreter!</h1>
         </div>
         <hr>
-        <div class="flex-container">
+        <div id="nav">
+            <h1>Navigation bar here with future features</h1>
+        </div>
+        <hr>
+        <div class="flex-container" id = "outerFlex">
             <div id="textarea">
                 <form action="" method="POST">
                     {{ form.hidden_tag() }}
+                    <p>{{ form.run() }} {{ form.save() }}</p>
                     <p>
-                        {{ form.code.label }}<br>
                         {{ form.code(size=32) }}<br>
                         {% for error in form.code.errors %}
                         <span style="color: red;">[{{ error }}]</span>
                         {% endfor %}
                     </p>
-                    <p>{{ form.run() }}</p>
-                    <p>{{ form.save() }}</p>
                 </form>
+                <script>
+                    var editor = CodeMirror.fromTextArea(document.getElementById("codeTextField"), {
+                        lineNumbers: true,
+                        mode:  "sql",
+                        indentWithTabs: true,
+                        smartIndent: true,
+                        lineNumbers: true,
+                        matchBrackets : true,
+                        autofocus: true,
+                        extraKeys: {"Ctrl-Space": "autocomplete"},
+                        hintOptions: {tables: {
+                        users: ["name", "score", "birthDate"],
+                        countries: ["name", "population", "size"]
+                        }}
+                    });
+                </script>
             </div>
-            <div id="output">
-                <p>Created tables: </p>
-                {% for table in createdTables %}
-                <table>
-                    <caption>{{table[0]}}</caption>
-                    {% for row in table[1] %}
-                    <tr>
-                        {% for item in row %}
-                        <td>{{item}}</td>
+            <div class="flex-container" id="output">
+                <div id="createdTables">
+                    <p>Created tables: </p>
+                    {% for table in createdTables %}
+                    <table>
+                        <caption>{{table[0]}}</caption>
+                        {% for row in table[1] %}
+                        <tr>
+                            {% for item in row %}
+                            <td>{{item}}</td>
+                            {% endfor %}
+                        </tr>
                         {% endfor %}
-                    </tr>
+                    </table>
+                    <br>
                     {% endfor %}
-                </table>
-                <br>
-                {% endfor %}
-                <hr><br>
-                <p>Output: </p>
-                {% for table in data %}
-                <table>
-                    {% for row in table %}
-                    <tr>
-                        {% for item in row %}
-                        <td>{{item}}</td>
+                </div>
+                <div id="returnTables">
+                    <p>Output: </p>
+                    {% for table in data %}
+                    <table>
+                        {% for row in table %}
+                        <tr>
+                            {% for item in row %}
+                            <td>{{item}}</td>
+                            {% endfor %}
+                        </tr>
                         {% endfor %}
-                    </tr>
+                    </table>
+                    <br>
                     {% endfor %}
-                </table>
-                <br>
-                {% endfor %}
+                </div>
             </div>
         </div>
 

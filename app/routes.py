@@ -60,6 +60,7 @@ def index():
                     data.append([row for row in results])
             save("example.sql",queries)
         if form.save.data:
+            queries = form.code.data
             save("example.sql",queries)
 
     return render_template('index.html', title='Home', createdTables = createdTables, data=data, form=form)

@@ -18,12 +18,8 @@
             <h1>SQL Interpreter!</h1>
         </div>
         <hr>
-        <div id="nav">
-            <h1>Navigation bar here with future features</h1>
-        </div>
-        <hr>
         <div class="flex-container" id = "outerFlex">
-            <div id="textarea">
+            <div class="flex-container" id="textarea">
                 <form action="" method="POST">
                     {{ form.hidden_tag() }}
                     <p>{{ form.run() }} {{ form.save() }}</p>
@@ -40,7 +36,6 @@
                         mode:  "sql",
                         indentWithTabs: true,
                         smartIndent: true,
-                        lineNumbers: true,
                         matchBrackets : true,
                         autofocus: true,
                         extraKeys: {"Ctrl-Space": "autocomplete"},

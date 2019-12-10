@@ -48,7 +48,7 @@
             </div>
             <div class="flex-container" id="output">
                 <div id="createdTables">
-                    <p>Created tables: </p>
+                    <h3>Created tables: </h3>
                     {% for table in createdTables %}
                     <table>
                         <caption>{{table[0]}}</caption>
@@ -64,7 +64,7 @@
                     {% endfor %}
                 </div>
                 <div id="returnTables">
-                    <p>Output: </p>
+                    <h3>Output: </h3>
                     {% for table in data %}
                     <table>
                         {% for row in table %}
@@ -75,7 +75,6 @@
                         </tr>
                         {% endfor %}
                     </table>
-                    <br>
                     {% endfor %}
                 </div>
             </div>

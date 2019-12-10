@@ -47,34 +47,39 @@
                 </script>
             </div>
             <div class="flex-container" id="output">
-                <div id="createdTables">
-                    <h3>Created tables: </h3>
+                <h3>Created tables: </h3>
+                <div class="flex-container" id="createdTables">
                     {% for table in createdTables %}
-                    <table>
-                        <caption>{{table[0]}}</caption>
-                        {% for row in table[1] %}
-                        <tr>
-                            {% for item in row %}
-                            <td>{{item}}</td>
+                    <div id="createdTable">
+                        <table>
+                            <caption>{{table[0]}}</caption>
+                            {% for row in table[1] %}
+                            <tr>
+                                {% for item in row %}
+                                <td>{{item}}</td>
+                                {% endfor %}
+                            </tr>
                             {% endfor %}
-                        </tr>
-                        {% endfor %}
-                    </table>
-                    <br>
+                        </table>
+                        <br>
+                    </div>
                     {% endfor %}
                 </div>
-                <div id="returnTables">
-                    <h3>Output: </h3>
+                <h3>Output: </h3>
+                <div class="flex-container" id="returnTables">
                     {% for table in data %}
-                    <table>
-                        {% for row in table %}
-                        <tr>
-                            {% for item in row %}
-                            <td>{{item}}</td>
+                    <div id="returnTable">
+                        <table>
+                            {% for row in table %}
+                            <tr>
+                                {% for item in row %}
+                                <td>{{item}}</td>
+                                {% endfor %}
+                            </tr>
                             {% endfor %}
-                        </tr>
-                        {% endfor %}
-                    </table>
+                        </table>
+                        <br>
+                    </div>
                     {% endfor %}
                 </div>
             </div>

@@ -14,4 +14,3 @@ After all the requirements have been downloaded, run:
 ```flask run```
 
 This will start the editor on your local server. Copy and load the IP address specified in the command line (usually http://127.0.0.1:5000/) in a new browser window. 
-

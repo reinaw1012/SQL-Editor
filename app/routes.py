@@ -57,7 +57,9 @@ def index():
                         title, table = displayTable(query, conn)
                         createdTables.append([title,table])
                     results = conn.cursor().execute(query)
-                    data.append([row for row in results])
+                    resultTable = [row for row in results]
+                    if resultTable:
+                        data.append(resultTable)
             save("example.sql",queries)
         if form.save.data:
             queries = form.code.data

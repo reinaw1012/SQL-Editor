@@ -11,6 +11,6 @@ Open the command line at the root directory and run:
 
 After all the requirements have been downloaded, run:
 <br>
-```flask run```
+```python app```
 
-This will start the editor on your local server. Copy and load the IP address specified in the command line (usually http://127.0.0.1:5000/) in a new browser window. 
+This will start the editor on your local server, and launch a new browser window with the IP address specified in the command line (usually http://127.0.0.1:5000/).

@@ -16,4 +16,4 @@ CREATE TABLE Children AS
   SELECT "fillmore"         , "grover"          UNION
   SELECT "eisenhower"       , "fillmore";
  
-SELECT * FROM Parents;
+ SELECT * FROM parents;

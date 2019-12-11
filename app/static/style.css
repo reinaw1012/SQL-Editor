@@ -12,6 +12,12 @@
   height: 5vh;
 }
 
+select {
+  float: left;
+  margin-left: .8vw;
+  margin-top: .8vh;
+}
+
 h1,h3 {
   font-weight: bold;
 }
@@ -122,9 +128,6 @@ table td tr {
 }
 
 tbody tr {
-  font-family: OpenSans-Regular;
-  font-size: 15px;
-  color: #808080;
   line-height: 1.2;
   font-weight: unset;
 }

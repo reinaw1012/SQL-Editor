@@ -15,9 +15,8 @@
     </head>
     <body>
         <div id='heading'>
-            <h1>SQL Interpreter!</h1>
+            <h1>CS61A SQL Interpreter!</h1>
         </div>
-        <hr>
         <div class="flex-container" id = "outerFlex">
             <div class="flex-container" id="textarea">
                 <form action="" method="POST">
@@ -67,6 +66,15 @@
                 </div>
                 <h3>Output: </h3>
                 <div class="flex-container" id="returnTables">
+                    <div id="error">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <p>{{message}}<p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    </div>
                     {% for table in data %}
                     <div id="returnTable">
                         <table>

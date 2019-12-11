@@ -15,7 +15,5 @@ CREATE TABLE Children AS
   SELECT "fillmore"         , "delano"          UNION
   SELECT "fillmore"         , "grover"          UNION
   SELECT "eisenhower"       , "fillmore";
-
-INSERT INTO Parents values ("reina", "jason");
-
-
+ 
+SELECT * FROM Parents;

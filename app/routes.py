@@ -43,16 +43,16 @@ def save(path,queries):
 
 def findCreatedTables(queries, conn):
     tablelst = []
-    querylst = queries.lower().split()
-    nameIndices = [i+1 for i in range(len(querylst)) if i != 0 and querylst[i-1]=="create" and querylst[i]=="table"]
+    querylst = queries.split()
+    nameIndices = [i+1 for i in range(len(querylst)) if i != 0 and querylst[i-1].lower()=="create" and querylst[i].lower()=="table"]
     for index in nameIndices:
         table = [querylst[index]]
         try:
             result = conn.cursor().execute(f"select * from {querylst[index]}")
             table.append([row for row in result])
             tablelst.append(table)
-        except sqlite3.Error as e:
-            print("SQL Error: ", e)
+        except sql.Error as e:
+            flash(f"SQL Error: {e}")
     return tablelst
 
 
@@ -76,8 +76,8 @@ def index():
                         resultTable = [row for row in results]
                         if resultTable:
                             data.append(resultTable)
-                    except sqlite3.Error as e:
-                        print("SQL Error: ", e)
+                    except sql.Error as e:
+                        flash(f"SQL Error: {e}")
                 createdTables = findCreatedTables(queries, conn)
                 # print(findCreatedTables(queries, conn))
                 # print("===========")

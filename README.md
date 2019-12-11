@@ -13,4 +13,12 @@ After all the requirements have been downloaded, run:
 <br>
 ```python app```
 
+If you want to launch it on Chrome, run: 
+<br>
+```python app -b chrome```
+
+Similarly, if you want to launch it on Firefox, run: 
+<br>
+```python app -b firefox```
+
 This will start the editor on your local server, and launch a new browser window with the IP address specified in the command line (usually http://127.0.0.1:5000/).

@@ -5,7 +5,7 @@ import threading
 import argparse
 
 parser = argparse.ArgumentParser(description='Add browser support.')
-parser.add_argument('-b')
+parser.add_argument('-b', help="Specify which browswer to launch the editor in: either chrome or firefox")
 
 args = parser.parse_args()
 

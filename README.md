@@ -1,6 +1,6 @@
 ### SQL Editor for CS61A
 
-This is a simple SQL Editor that allows you to edit and run SQL code from a file, as well as view the created tables. 
+This is a SQL Editor that allows you to edit and run SQL code from a file, as well as view the created tables. 
 
 ![SQL Editor](screenshot.PNG)
 

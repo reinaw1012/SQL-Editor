@@ -7,11 +7,8 @@ This is a SQL Editor that allows you to edit and run SQL code from a file, as we
 ## Setup
 Open the command line at the root directory and run:
 <br>
-```$ pip install -r requirements.txt```
-
-After all the requirements have been downloaded, run:
-<br>
 ```python app```
+(No need to install any dependencies!)
 
 If you want to launch it on Chrome, run: 
 <br>

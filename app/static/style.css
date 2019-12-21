@@ -96,8 +96,9 @@ input[type=button]:hover, input[type=submit]:hover {
 }
 
 #createdTable, #returnTable {
-  flex-grow: 1;
   overflow-x: auto;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 table {

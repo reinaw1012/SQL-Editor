@@ -1,5 +1,5 @@
 CREATE TABLE Parents AS
-  SELECT "abrahambla" AS parent, "sbarack" AS child UNION
+  SELECT "abraham lincoln" AS parent, "barack obama" AS child UNION
   SELECT "abraham"          , "clinton"         UNION
   SELECT "delano"           , "herbert"         UNION
   SELECT "fillmore"         , "abraham"         UNION
@@ -16,4 +16,3 @@ CREATE TABLE Children AS
   SELECT "fillmore"         , "grover"          UNION
   SELECT "eisenhower"       , "fillmore";
  
- SELECT * FROM parents;

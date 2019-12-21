@@ -17,14 +17,16 @@ elif args.b == 'firefox':
 
 
 #Check for dependencies
-result = subprocess.check_output('pip freeze', shell=True)
-result = str(result)
-if 'Flask==' not in result:
-    os.system('pip install Flask')
-if 'Flask-WTF==' not in result:
-    os.system('pip install Flask-WTF')
-if 'python-dotenv==' not in result:
-    os.system('pip install python-dotenv')
+with open('../requirements.txt') as reqs:
+    result = subprocess.check_output('pip freeze', shell=True)
+    result = str(result)
+    req = reqs.readline()
+    while req:
+        if req[:-1]+'==' not in result:
+            os.system(f'pip install {req[:-1]}')
+        req = reqs.readline()
+
+
 
 def main_thread():
     other = threading.Thread(target=flask_thread, args=())

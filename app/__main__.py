@@ -17,14 +17,13 @@ elif args.b == 'firefox':
 
 
 #Check for dependencies
-with open('../requirements.txt') as reqs:
+with open('requirements.txt') as requirements:
     result = subprocess.check_output('pip freeze', shell=True)
     result = str(result)
-    req = reqs.readline()
-    while req:
-        if req[:-1]+'==' not in result:
-            os.system(f'pip install {req[:-1]}')
-        req = reqs.readline()
+    reqs = requirements.read().splitlines()
+    for req in reqs:
+        if req+'==' not in result:
+            os.system(f'pip install {req}')
 
 
 

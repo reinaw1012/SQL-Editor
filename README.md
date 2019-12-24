@@ -5,11 +5,12 @@ This is a SQL Editor that allows you to edit and run SQL code from a file, as we
 ![SQL Editor](screenshot.PNG)
 
 ## Setup
+
+No need to install any dependencies! <br>
 Open the command line at the root directory and run:
 <br>
 ```python app```
-<br>
-(No need to install any dependencies!)
+
 
 If you want to launch it on Chrome, run: 
 <br>

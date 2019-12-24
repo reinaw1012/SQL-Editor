@@ -23,7 +23,8 @@ with open('requirements.txt') as requirements:
     reqs = requirements.read().splitlines()
     for req in reqs:
         if req+'==' not in result:
-            os.system(f'pip install {req}')
+            pip='pip install '+ req
+            os.system(pip)
 
 
 
